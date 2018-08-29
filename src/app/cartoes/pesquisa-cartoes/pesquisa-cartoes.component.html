@@ -1,0 +1,28 @@
+<div class="container">
+
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Formas de Pagamentos Cadastrados</h1>
+      </div>
+
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <p-dataTable [value]="cartoes" [rows]="5" [paginator]="true"
+              [responsive]="true" emptyMessage="Nenhum cartão foi cadastrado">
+            <p-column field="nome" header="Nome"></p-column>
+            <p-column styleClass="col-acoes">
+                <ng-template let-car="rowData" pTemplate="body">
+                  <button pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top"
+                  [routerLink]="['/formaPagamento', car.codigo ]"></button>
+                </ng-template>
+              </p-column>
+
+        </p-dataTable>
+      </div>
+
+      <div class="ui-g-12">
+        <a pButton label="Cadastrar outra forma" routerLink="/formaPagamento/novo"></a>
+      </div>
+    </div>
+
+  </div>

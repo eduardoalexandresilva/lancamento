@@ -1,0 +1,32 @@
+<div class="container">
+
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <h1> {{ editando ? 'Edição de ' : 'Nova' }}  Forma de Pagamento</h1>
+    </div>
+
+    <div class="ui-g-12 ui-md-9 ui-fluid des">
+        <label>Nome </label>
+        <input pInputText type="text" name="descricao"
+        [(ngModel)]="cartao.nome"
+          #descricao="ngModel" required minlength="4">
+
+
+          <app-message [control]="descricao" error="required"
+          text="Informe um nome válido"></app-message>
+        <app-message [control]="descricao" error="minlength"
+          text="Mínimo de {{ descricao.errors?.minlength?.requiredLength }} caracteres"></app-message>
+      </div>
+
+      <div class="ui-g-12">
+          <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
+          <button pButton type="button" label="Novo" class="ui-button-info"
+          (click)="novo(f)"></button>
+          <a routerLink="/formaPagamento">Voltar para a pesquisa</a>
+        </div>
+
+  </div>
+</form>
+</div>

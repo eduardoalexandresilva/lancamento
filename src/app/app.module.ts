@@ -1,16 +1,37 @@
+import { SegurancaModule } from './seguranca/seguranca.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+
+import { LancamentosModule } from './lancamentos/lancamentos.module';
+import { PessoasModule } from './pessoas/pessoas.module';
+import { CartoesModule } from './cartoes/cartoes.module';
+import { CoreModule } from './core/core.module';
+import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './app-routing.module';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpModule,
+
+    CoreModule,
+    LancamentosModule,
+    PessoasModule,
+    CartoesModule,
+    SegurancaModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
